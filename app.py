@@ -1,8 +1,16 @@
 # Import Python packages
 import streamlit as st
-from snowflake.snowpark.session import Session
-from snowflake.snowpark.exceptions import SnowparkException
-from snowflake.snowpark.exceptions import Snow
+from snowflake.snowpark import Session
+
+st.title('❄️ How to connect Streamlit to a Snowflake database')
+
+# Establish Snowflake session
+@st.cache_resource
+def create_session():
+    return Session.builder.configs(st.secrets.snowflake).create()
+
+session = create_session()
+st.success("Connected to Snowflake!")
 
 # Write directly to the app
 st.title("Example Streamlit App :balloon:")
