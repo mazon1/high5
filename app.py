@@ -2,6 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.session import Session
 from snowflake.snowpark.exceptions import SnowparkException
+from snowflake.snowpark.exceptions import Snow
 
 # Write directly to the app
 st.title("Example Streamlit App :balloon:")
